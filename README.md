@@ -47,6 +47,9 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
+## Documentation
+Swagger docs are available on `http://localhost:3000/api`
+
 ## Troubleshooting
 ```
 PrismaClientInitializationError: Can't reach database server at `localhost`:`5432`
