@@ -11,7 +11,7 @@ export class TaskRepository {
     return records.map((record) => this.mapToEntity(record));
   }
 
-  async findById(id) {
+  async findById(id: string) {
     const record = await this.prismaService.task.findUnique({
       where: {
         id,
@@ -23,7 +23,7 @@ export class TaskRepository {
     return this.mapToEntity(record);
   }
 
-  async delete(id) {
+  async delete(id: string) {
     await this.prismaService.task.delete({
       where: {
         id,
@@ -46,7 +46,7 @@ export class TaskRepository {
     });
   }
 
-  mapToEntity(record) {
+  mapToEntity(record: Record<string, any>): Task {
     return new Task({
       id: record.id,
       accountId: record.accountId,

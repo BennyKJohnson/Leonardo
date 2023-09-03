@@ -16,6 +16,7 @@ import {
   TaskServiceErrorCode,
 } from '../../task.service';
 import { CreateTaskRequestBody } from './create-task-request';
+import { UpdateTaskRequest } from './update-task-request';
 import { TaskResponse } from './task-response';
 import { ApiOkResponse } from '@nestjs/swagger';
 
@@ -93,7 +94,7 @@ export class TaskController {
   @Put(':id')
   async update(
     @Param('id') id: string,
-    @Body() updateTaskRequestBody: CreateTaskRequestBody,
+    @Body() updateTaskRequestBody: UpdateTaskRequest,
   ) {
     const updateTaskDetails = {
       accountId: updateTaskRequestBody.accountId,

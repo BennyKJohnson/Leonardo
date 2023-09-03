@@ -11,7 +11,7 @@ export class ScheduleRepository {
     return records.map((record) => this.mapToEntity(record));
   }
 
-  async findById(id) {
+  async findById(id: string) {
     const record = await this.prismaService.schedule.findUnique({
       where: {
         id: id,
@@ -24,7 +24,7 @@ export class ScheduleRepository {
     return this.mapToEntity(record);
   }
 
-  async delete(id) {
+  async delete(id: string) {
     await this.prismaService.schedule.delete({
       where: {
         id: id,
@@ -48,7 +48,7 @@ export class ScheduleRepository {
     });
   }
 
-  mapToRecord(schedule) {
+  mapToRecord(schedule: Schedule) {
     return {
       id: schedule.id,
       accountId: schedule.accountId,
@@ -58,7 +58,7 @@ export class ScheduleRepository {
     };
   }
 
-  mapToEntity(record) {
+  mapToEntity(record: Record<string, any>) {
     return new Schedule({
       id: record.id,
       accountId: record.accountId,
