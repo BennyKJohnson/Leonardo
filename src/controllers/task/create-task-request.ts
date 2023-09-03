@@ -10,7 +10,7 @@ export class CreateTaskRequestBody {
 
   @ApiProperty()
   @IsNotEmpty()
-  @IsNumber()
+  @IsString()
   scheduleId: string;
 
   @ApiProperty()
